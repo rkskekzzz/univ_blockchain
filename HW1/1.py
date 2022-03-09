@@ -17,10 +17,7 @@ def makeDictionaryWithCipherText():
 def sortDictinaryByValue(srcDic):
 	return  sorted(srcDic.items(), key = lambda item: item[1], reverse = True)
 
-cipherTextCharacterCountArr = makeDictionaryWithCipherText()
-sortedArr = sortDictinaryByValue(cipherTextCharacterCountArr)
-
-def decryptText():
+def decryptText(sortedArr):
 	for index, (key, elem) in enumerate(sortedArr):
 		diff = ord(key) - asciiOfE
 		for ch in cipherText:
@@ -29,6 +26,8 @@ def decryptText():
 		if index >= 4:
 			break
 
-decryptText()
+cipherTextCharacterCountArr = makeDictionaryWithCipherText()
+sortedArr = sortDictinaryByValue(cipherTextCharacterCountArr)
+decryptText(sortedArr)
 
 print("\n<Most Meaningful Text> \nAESIS BASED ON A DESIGN PRINCIPLE KNOW NASA SUBSTITUTION PERMUTATION NETWORK AND IS EFFICIENT IN BOTH SOFTWARE AND HARDWARE")
