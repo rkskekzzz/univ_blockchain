@@ -3,12 +3,9 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
-from cryptography.hazmat.primitives.asymmetric import rsa
 
 def fetchData():
-	user_input = input()
-	return user_input
-
+	return input()
 
 def getPrivateKey():
 	with open("private_key.pem", 'rb') as private_key_file:
@@ -88,6 +85,7 @@ def receiver(enc_msg):
 	private_key = getPrivateKey()
 	plain_msg = getMessageAndDecrypt(enc_msg, private_key)
 	print(plain_msg)
+
 
 enc_msg = sender()
 receiver(enc_msg)
