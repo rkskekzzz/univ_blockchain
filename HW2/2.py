@@ -42,9 +42,7 @@ def addTwoCoordinate(p, q):
 		if q.x < p.x:
 			p, q = q, p
 		incl = (q.y - p.y) * extendedEuclidianAlgorithm(n, q.x - p.x) % n
-
-	pt = getCoordinate(incl)
-	return pt
+	return getCoordinate(incl)
 
 def doubleAndAddAlgorithm(k, G):
 	ptr = 2 ** k.bit_length()
