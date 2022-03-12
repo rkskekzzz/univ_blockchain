@@ -4,7 +4,7 @@ from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 
-def fetchData():
+def getUserInput():
 	return input()
 
 def getPrivateKey():
@@ -71,7 +71,7 @@ def getMessageAndDecrypt(message, private_key):
 	return plain_msg
 
 def sender():
-	user_input = fetchData()
+	user_input = getUserInput()
 	public_key = getPublicKey()
 	plain_message = getPlainFile() # n보다 큰 byte의 텍스트 테스트
 	try:
@@ -88,4 +88,5 @@ def receiver(enc_msg):
 
 
 enc_msg = sender()
+print(enc_msg)
 receiver(enc_msg)
