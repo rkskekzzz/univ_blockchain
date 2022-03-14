@@ -44,6 +44,7 @@ def addTwoCoordinate(p, q):
 		incl = (q.y - p.y) * extendedEuclidianAlgorithm(n, q.x - p.x) % n
 	return getCoordinate(incl)
 
+
 def doubleAndAddAlgorithm(k, G):
 	ptr = 2 ** k.bit_length()
 	res = 0

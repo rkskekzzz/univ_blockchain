@@ -5,7 +5,7 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 
 def getUserInput():
-	return input()
+	return input("메세지를 입력하세요 : ")
 
 def getPrivateKey():
 	with open("private_key.pem", 'rb') as private_key_file:
@@ -23,7 +23,8 @@ def getPublicKey():
 	return public_key
 
 def getPlainFile(): # for Debug
-	with open("tail.txt", 'rb') as plain_file:
+	filename = input("긴텍스트 파일의 이름을 입력하세요 : ")
+	with open(filename, 'rb') as plain_file:
 		plain_message = plain_file.read()
 	return plain_message
 
@@ -73,7 +74,7 @@ def getMessageAndDecrypt(message, private_key):
 def sender():
 	user_input = getUserInput()
 	public_key = getPublicKey()
-	plain_message = getPlainFile() # n보다 큰 byte의 텍스트 테스트
+	# plain_message = getPlainFile() # n보다 큰 byte의 텍스트 테스트
 	try:
 		encrypted = encryptWithRSA(bytes(user_input, 'utf-8'), public_key)
 	except:
